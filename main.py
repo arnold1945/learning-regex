@@ -70,34 +70,41 @@ def match_valid_username(s: str) -> bool:
     """
     Match a username that contains only letters, numbers, and underscores, and is 3–16 characters long.
     """
-    pass
+    result = bool(re.match(r'^[a-zA-Z0-9_]{3,16}$',  s))
+    return result
+
 
 def match_url(s: str) -> bool:
     """
     Match a simple HTTP or HTTPS URL.
     """
-    pass
+    result = bool(re.match(r'^[https?]', s))
+    return result
 
 def match_credit_card(s: str) -> bool:
     """
     Match a credit card number format: 4 groups of 4 digits separated by spaces or hyphens.
     """
-    pass
+    result = bool(re.match(r'^(\d{4})([-|\s])(\d{4})([-|\s])(\d{4})([-|\s])(\d{4})$', s))
+    return result
 
 def match_hashtag(s: str) -> bool:
     """
     Match a valid hashtag that begins with # and is followed by alphanumeric characters.
     """
-    pass
+    result = bool(re.match(r'^#[\d\w]+$',s))
+    return result
 
 def match_ip_address(s: str) -> bool:
     """
     Match a valid IPv4 address.
     """
-    pass
+    result = bool(re.match(r'^(\d{3}).(\d{3}).(\d*).([\d*])$', s))
+    return result
 
 def match_strong_password(s: str) -> bool:
     """
     Match a strong password (at least 8 characters, one uppercase, one lowercase, one digit, and one special character).
     """
-    pass
+    result =bool(re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$', s))
+    return result
